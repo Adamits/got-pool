@@ -1,0 +1,22 @@
+<div class="characters">
+  <% @characters.each_slice(10).with_index do |character_block, i| %>
+    <div class="row character-row">
+      <% if i < 2 %>
+        <div class="col-sm-1"></div>
+      <% else %>
+        <div class="col-sm-2"></div>
+      <% end %>
+      <% character_block.each_slice(2) do |character_tup| %>
+        <div class="col-sm-2 character-col">
+          <div class="row character-row">
+            <% character_tup.each do |character| %>
+              <div class="col-sm-5 character-col square">
+                <%= image_tag(character.get_filename, class: "img-responsive full-width") %>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+</div>

@@ -1,0 +1,19 @@
+.top {
+  background-color: #040404;
+  color: #FFFFFF;
+  font-size: 28px;
+
+  .nav {
+    .nav-link {
+      margin-top: 10px;
+    }
+
+    a:visited {
+      color: #FFFFFF;
+    }
+
+    a:hover {
+      color: #000;
+    }
+  }
+}
