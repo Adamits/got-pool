@@ -17,6 +17,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'bootstrap-sass'
 gem "roo", "~> 2.8.0"
+gem 'bundler', '>= 2.0'
 
 group :development, :test do
   gem 'byebug'

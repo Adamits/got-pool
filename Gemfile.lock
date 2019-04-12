@@ -168,6 +168,7 @@ PLATFORMS
 
 DEPENDENCIES
   bootstrap-sass
+  bundler (>= 2.0)
   byebug
   jbuilder (~> 2.0)
   jquery-rails
