@@ -11,10 +11,51 @@
       <% @users.each_with_index do |user, i| %>
         <tr class="user">
           <td><%= i+1 %></td>
-          <td><%= user.name %></td>
+          <td>
+            <%= link_to user.name, user_path(user) %>
+          </td>
           <td><%= user.points %></td>
         </tr>
       <% end %>
     </tbody>
   </table>
+  <div class="comments">
+    <h2>Comments</h2>
+    <div class="comment-form">
+      <%= form_for @comment, :url => comments_path do |f| %>
+        <div class="row form-group">
+          <div class="col-sm-3">
+            <%= f.label :name %>
+          </div>
+          <div class="col-sm-9">
+            <%= f.text_field :name, placeholder: "Name", class: "form-control" %>
+          </div>
+        </div>
+        <div class="row form-group">
+          <div class="col-sm-3">
+            <%= f.label :text  %>
+          </div>
+          <div class="col-sm-9">
+            <%= f.text_area :text, placeholder: "Comment", class: "form-control" %>
+          </div>
+        </div>
+        <%= f.submit "Submit", class: "btn-success" %>
+      <% end %>
+    </div>
+    <div class="comments">
+      <% @comments.each do |comment| %>
+        <div class="row">
+          <div class="col-sm-4 col-sm-offset-4 comment">
+            <div class="comment-user">
+              <%= comment.name %> | <%= comment.created_at.strftime("%m-%d-%Y at %I:%M %p") %>
+            </div>
+            <div class="comment-text">
+              <%= comment.text %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+      <%= will_paginate @comments %>
+    </div>
+  </div>
 </div>

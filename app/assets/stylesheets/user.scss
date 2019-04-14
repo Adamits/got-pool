@@ -1,8 +1,26 @@
 .user-list {
   font-size: 18px;
-  margin-top: 20px;
+  margin-top: 40px;
 
   .user {
     font-weight: 500;
+  }
+}
+
+.user-header {
+  text-align: center
+}
+
+.user-points {
+  text-align: center
+}
+
+.answers {
+  .question {
+    font-size: 16px;
+  }
+
+  .answer {
+    font-size: 16px;
   }
 }

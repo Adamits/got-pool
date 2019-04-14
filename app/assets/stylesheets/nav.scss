@@ -12,8 +12,15 @@
       color: #FFFFFF;
     }
 
-    a:hover {
-      color: #000;
+    a.logo:hover {
+      background-color: #040404;
+      border: 0;
+      border-radius: 0;
     }
   }
+}
+
+a:-webkit-any-link.logo {
+  border: 0;
+  border-radius: 0;
 }

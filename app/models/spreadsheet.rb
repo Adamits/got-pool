@@ -48,10 +48,5 @@ class Spreadsheet
         guess.save
       end
     end
-
-    Question.all.each do |q|
-      # questions about a character default to Alive
-      q.set_answer("Alive") unless q.character.nil?
-    end
   end
 end

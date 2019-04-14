@@ -5,22 +5,27 @@ class Guess < ActiveRecord::Base
   validates :user, presence: true
 
   def correct?
+    # Cases are:
+    # Alive, Dead, or White walker
+    # But White walker implies dead, and
+    # predicting dead is still correct if they become a white walker
     if question.answered
       question.answer == text \
-      or (question.answer.include?("Dead") && text.include?("Dead")) \
-      or (question.answer.include?("White Walker") && text.include?("White Walker")) \
-      or (question.answer.include?("White Walker") && text.include?("Dead"))
+      or (question.answer.include?("Dead") && text == "Dead") \
+      or (question.answer.include?("White Walker") && text == "Dead") \
+      or (question.answer.include?("White Walker") && text.include?("White Walker"))
     else
       false
     end
   end
 
   def extra_points?
-    text.include?("White Walker") && correct?
+    text.include?("White Walker") && question.answer.include?("White Walker")
   end
 
   def negative_points?
-    text.include?("White Walker") && !correct?
+    # Only lose a point if the character dies, and you predicted white walker
+    text.include?("White Walker") && question.answer == "Dead"
   end
 
   def set_state
