@@ -4,6 +4,16 @@
     .character-row {
       margin-left: -30px;
       margin-right: -30px;
+
+      .full {
+        color: red;
+        height: 100%;
+        left: 0;
+        line-height: .6;
+        position: absolute;
+        top: 0;
+        width: 100%;
+      }
     }
 
     padding-left: 0px;

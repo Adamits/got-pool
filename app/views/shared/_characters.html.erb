@@ -10,8 +10,11 @@
         <div class="col-sm-2 character-col">
           <div class="row character-row">
             <% character_tup.each do |character| %>
-              <div class="col-sm-5 character-col square">
+              <div class="col-sm-5 character-col square image-container">
                 <%= image_tag(character.get_filename, class: "img-responsive full-width") %>
+                <% if character.dead? %>
+                  <div class="full">X</div>
+                <% end %>
               </div>
             <% end %>
           </div>

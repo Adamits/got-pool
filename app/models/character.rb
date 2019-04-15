@@ -9,11 +9,11 @@ class Character < ActiveRecord::Base
   end
 
   def dead?
-    status == "Dead"
+    whitewalker? or status.include?("Dead")
   end
 
   def whitewalker?
-    status == "White Walker"
+    status.include?("White Walker")
   end
 
   def status_error?
