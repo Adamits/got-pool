@@ -47,7 +47,7 @@
         <div class="row">
           <div class="col-sm-4 col-sm-offset-4 comment">
             <div class="comment-user">
-              <%= comment.name %> | <%= comment.created_at.strftime("%m-%d-%Y at %I:%M %p") %>
+              <%= comment.name %> | <%= comment.display_date %>
             </div>
             <div class="comment-text">
               <%= comment.text %>
