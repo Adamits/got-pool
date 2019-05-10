@@ -9,8 +9,19 @@
         <label class="col-sm-2 col-form-label question">
           <%= guess.question.text %>
         </label>
-        <div class="col-sm-10 answer">
+        <div class="col-sm-2 answer">
           <%= guess.text %>
+        </div>
+        <div class="col-sm-1">
+          <% if guess.correct? %>
+            <% if guess.extra_points? %>
+              +2
+            <% else %>
+              +1
+            <% end %>
+          <% elsif guess.negative_points? %>
+            -1
+          <% end %>
         </div>
       </div>
     <% end %>
