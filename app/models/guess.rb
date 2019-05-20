@@ -20,12 +20,12 @@ class Guess < ActiveRecord::Base
   end
 
   def extra_points?
-    text.include?("White Walker") && question.answer.include?("White Walker")
+    text.include?("White Walker") && question.answer && question.answer.include?("White Walker")
   end
 
   def negative_points?
     # Only lose a point if the character dies, and you predicted white walker
-    text.include?("White Walker") && question.answer == "Dead"
+    text.include?("White Walker") && question.answer && !question.answer.include?("White Walker")
   end
 
   def set_state
